@@ -5,12 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @RestController
 @SpringBootApplication
-public class SpringCloudCircuitBreakerReadingApplication {
+public class SpringCloudCircuitBreakerCatalogApplication {
 
 //	@RequestMapping("/to-read")
 //	public Mono<String> toRead() {
@@ -20,15 +19,15 @@ public class SpringCloudCircuitBreakerReadingApplication {
 //	}
 
 	@Autowired
-	private BookService bookService;
+	private MovieService movieService;
 
-	@RequestMapping("/to-read")
-	public Mono<String> toRead() {
-		return bookService.readingList();
+	@RequestMapping("/to-watch")
+	public Mono<String> toWatch() {
+		return movieService.watchList();
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringCloudCircuitBreakerReadingApplication.class, args);
+		SpringApplication.run(SpringCloudCircuitBreakerCatalogApplication.class, args);
 	}
 
 }
